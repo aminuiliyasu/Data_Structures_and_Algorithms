@@ -111,10 +111,24 @@ class DoublyLinkedList:
         temp.prev = None
         self.length -= 1
         return temp.value
+
+    def is_palindrome(self):
+        if self.length == 0:
+            return True
+        left = self.head
+        right = self.tail
+        while left != right and left.prev != right:
+            if left.value != right.value:
+                return False
+            left = left.next
+            right = right.prev
+        return True
     
 my_linked_list = DoublyLinkedList(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
 my_linked_list.append(2)
 my_linked_list.append(1)
-my_linked_list.print_list()
+
+print(my_linked_list.is_palindrome())
+#my_linked_list.print_list()
