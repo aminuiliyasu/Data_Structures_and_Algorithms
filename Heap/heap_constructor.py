@@ -22,6 +22,16 @@ class MaxHeap:
             self._swap(index,self._parent(index))
             index=self._parent(index)
     
+    def remove(self):
+        if not self.heap:
+            return None
+        if len(self.heap) == 1:
+            return self.heap.pop()
+        
+        root = self.heap[0]
+        self.heap[0] = self.heap.pop()
+        self._heapify(0)
+        return root
     
     
 myheap = MaxHeap()
